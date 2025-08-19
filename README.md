@@ -4,4 +4,4 @@ This project is a beginner friendly robot arm made using basic servos and an Ard
 
 The robot arm itself is controlled by calibrating potentiometers accordingly. 
 
-The arduino code and e circuit was simulated in Tinkercad ( https://www.tinkercad.com/things/8U7hdWss60a-robot-arm )
+The arduino code and circuit was simulated in Tinkercad ( https://www.tinkercad.com/things/8U7hdWss60a-robot-arm )
