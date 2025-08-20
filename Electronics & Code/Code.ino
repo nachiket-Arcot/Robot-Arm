@@ -1,7 +1,9 @@
 #include <Servo.h>
 #define SERVO_NUM 4
 
-//Declarations
+/************************************
+Declaration of variables and arrays
+************************************/
 
 //Gripper Servo done seperately since max angle should be 60
 Servo ServoGripper;
@@ -19,34 +21,58 @@ int potpins[SERVO_NUM] = {5, 4, 3, 2};
 int angleGripper;
 int angles[SERVO_NUM];
 
+//Setting up servos by connecting them to their respective pins
+void setupServo(){
+  for (int i = 0; i < SERVO_NUM; i++){
+    Servos[i].attach(servoPins[i]);
+    delay(15);
+  }
+ ServoGripper.attach(3);
+}
+
+/****************************************
+Individual functions made for each tasks
+****************************************/
+
+//Reading potentiometer values for joints and gripper
+void readPotentiometers(){
+  for (int i = 0; i < SERVO_NUM; i++){
+     potvals[i] = analogRead(potpins[i]);
+  }
+  potvalGripper = analogRead(1);
+}
+
+//Adjusts the angle based on the potentiometer values so that they match
+void adjustangles(){
+  for (int i = 0; i < SERVO_NUM; i++){
+    angles[i] = map(potvals[i], 0, 1023, 0 ,180);
+  }
+   angleGripper = map(potvalGripper, 0, 1023, 0 , 60);
+}
+
+//Rotates the servos based on the angle value
+void rotateServos() {
+  for (int i = 0; i < SERVO_NUM; i++){
+     Servos[i].write(angles[i]);
+     delay(15);
+    }
+  ServoGripper.write(angleGripper);
+  delay(15);
+}
+
+/**************
+Function Calls
+**************/
+
 void setup()
 {
  Serial.begin(9600); //Beginning Serial Connection
- //Connecting Servos to Pin and setting servo angles to zero
-  for (int i = 0; i < SERVO_NUM; i++){
-    Servos[i].attach(servoPins[i]);
-    Servos[i].write(0);
-    delay(15);
-  }
- //Setting up Gripper Servo
- ServoGripper.attach(3);
- ServoGripper.write(0);
+ setupServo();
 }
 
 void loop()
 {
-  for (int i = 0; i < SERVO_NUM; i++){
-	 //Reading potentiometer values
-     potvals[i] = analogRead(potpins[i]);
-     //Adjusting potvalue to servo angle
-     angles[i] = map(potvals[i], 0, 1023, 0 ,180);
-     //Turning servo to given angle
-     Servos[i].write(angles[i]);
-     delay(15);
-    }
-  //Turning Servo for the Gripper
-  potvalGripper = analogRead(1);
-  angleGripper = map(potvalGripper, 0, 1023, 0 , 60);
-  ServoGripper.write(angleGripper);
-  delay(15);
+  readPotentiometers();
+  adjustangles();
+  rotateServos();
 }
