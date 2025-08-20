@@ -11,11 +11,13 @@ Servo ServoGripper;
 //Servos and Servo Pins array
 Servo Servos[SERVO_NUM];
 int servoPins[SERVO_NUM] = {10, 9, 6, 5};
+int servoPin_Gripper = 3;
 
 //Declaring Potentiometers
 int potvalGripper;
 int potvals[SERVO_NUM];
 int potpins[SERVO_NUM] = {5, 4, 3, 2};
+int potpin_gripper = 1;
 
 //Declaring Angle Values
 int angleGripper;
@@ -27,7 +29,7 @@ void setupServo(){
     Servos[i].attach(servoPins[i]);
     delay(15);
   }
- ServoGripper.attach(3);
+ ServoGripper.attach(servoPin_Gripper);
 }
 
 /****************************************
@@ -39,7 +41,7 @@ void readPotentiometers(){
   for (int i = 0; i < SERVO_NUM; i++){
      potvals[i] = analogRead(potpins[i]);
   }
-  potvalGripper = analogRead(1);
+  potvalGripper = analogRead(potpin_gripper);
 }
 
 //Adjusts the angle based on the potentiometer values so that they match
