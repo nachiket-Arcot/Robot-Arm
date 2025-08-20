@@ -23,6 +23,11 @@ int potGripPin = 1;
 int angleGripper;
 int angles[SERVO_NUM];
 
+
+/**********
+Individual functions made for each tasks
+*********/
+
 //Setting up servos by connecting them to their respective pins
 void setupServo(){
   for (int i = 0; i < SERVO_NUM; i++){
@@ -31,10 +36,6 @@ void setupServo(){
   }
  ServoGripper.attach(gripperServoPin);
 }
-
-/**********
-Individual functions made for each tasks
-*********/
 
 //Reading potentiometer values for joints and gripper
 void readPotentiometers(){
@@ -95,5 +96,5 @@ void loop()
   readPotentiometers();
   adjustangles();
   rotateServos();
-  debug();
+  //debug();
 }
