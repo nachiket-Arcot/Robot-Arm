@@ -1,9 +1,9 @@
 #include <Servo.h>
 #define SERVO_NUM 4
 
-/************************************
+/**********
 Declaration of variables and arrays
-************************************/
+*********/
 
 //Gripper Servo done seperately since max angle should be 60
 Servo ServoGripper;
@@ -11,13 +11,13 @@ Servo ServoGripper;
 //Servos and Servo Pins array
 Servo Servos[SERVO_NUM];
 int servoPins[SERVO_NUM] = {10, 9, 6, 5};
-int servoPin_Gripper = 3;
+int GripperServoPin = 3;
 
 //Declaring Potentiometers
 int potvalGripper;
 int potvals[SERVO_NUM];
 int potpins[SERVO_NUM] = {5, 4, 3, 2};
-int potpin_gripper = 1;
+int potGripPin = 1;
 
 //Declaring Angle Values
 int angleGripper;
@@ -29,19 +29,19 @@ void setupServo(){
     Servos[i].attach(servoPins[i]);
     delay(15);
   }
- ServoGripper.attach(servoPin_Gripper);
+ ServoGripper.attach(GripperServoPin);
 }
 
-/****************************************
+/**********
 Individual functions made for each tasks
-****************************************/
+*********/
 
 //Reading potentiometer values for joints and gripper
 void readPotentiometers(){
   for (int i = 0; i < SERVO_NUM; i++){
      potvals[i] = analogRead(potpins[i]);
   }
-  potvalGripper = analogRead(potpin_gripper);
+  potvalGripper = analogRead(potGripPin);
 }
 
 //Adjusts the angle based on the potentiometer values so that they match
@@ -62,9 +62,26 @@ void rotateServos() {
   delay(15);
 }
 
-/**************
+//Printing angle and potval values for debugging purposes
+void debug() {
+  for (int i = 0; i < SERVO_NUM; i++) {
+    Serial.print(" Servo ");
+    Serial.print(i + 1);
+    Serial.print(" | Potval: ");
+    Serial.print(potvals[i]);
+    Serial.print(" | Angle: ");
+    Serial.print(angles[i]);
+  }
+  Serial.print(" Servo Gripper");
+  Serial.print(" | Potval: ");
+  Serial.print(potvalGripper);
+  Serial.print(" | Angle: ");
+  Serial.print(angleGripper);
+}
+
+/**********
 Function Calls
-**************/
+*********/
 
 void setup()
 {
@@ -77,4 +94,5 @@ void loop()
   readPotentiometers();
   adjustangles();
   rotateServos();
+  //debug();
 }
