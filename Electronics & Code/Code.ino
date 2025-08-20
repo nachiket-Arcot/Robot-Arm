@@ -11,7 +11,7 @@ Servo ServoGripper;
 //Servos and Servo Pins array
 Servo Servos[SERVO_NUM];
 int servoPins[SERVO_NUM] = {10, 9, 6, 5};
-int GripperServoPin = 3;
+int gripperServoPin = 3;
 
 //Declaring Potentiometers
 int potvalGripper;
@@ -29,7 +29,7 @@ void setupServo(){
     Servos[i].attach(servoPins[i]);
     delay(15);
   }
- ServoGripper.attach(GripperServoPin);
+ ServoGripper.attach(gripperServoPin);
 }
 
 /**********
@@ -65,18 +65,19 @@ void rotateServos() {
 //Printing angle and potval values for debugging purposes
 void debug() {
   for (int i = 0; i < SERVO_NUM; i++) {
-    Serial.print(" Servo ");
+    Serial.println(" Servo ");
     Serial.print(i + 1);
     Serial.print(" | Potval: ");
     Serial.print(potvals[i]);
     Serial.print(" | Angle: ");
     Serial.print(angles[i]);
   }
-  Serial.print(" Servo Gripper");
+  Serial.println(" Servo Gripper");
   Serial.print(" | Potval: ");
   Serial.print(potvalGripper);
   Serial.print(" | Angle: ");
   Serial.print(angleGripper);
+  Serial.println("=============================");
 }
 
 /**********
@@ -85,7 +86,7 @@ Function Calls
 
 void setup()
 {
- Serial.begin(9600); //Beginning Serial Connection
+ Serial.begin(1000000); //Beginning Serial Connection
  setupServo();
 }
 
@@ -94,5 +95,5 @@ void loop()
   readPotentiometers();
   adjustangles();
   rotateServos();
-  //debug();
+  debug();
 }
