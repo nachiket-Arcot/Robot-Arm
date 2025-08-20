@@ -86,7 +86,7 @@ Function Calls
 
 void setup()
 {
- Serial.begin(1000000); //Beginning Serial Connection
+ Serial.begin(115200); //Beginning Serial Connection
  setupServo();
 }
 
