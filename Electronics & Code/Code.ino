@@ -1,39 +1,23 @@
 #include <Servo.h>
 #define SERVO_NUM 4
 
-//Declaring Servos
-Servo Servo1;
-Servo Servo2;
-Servo Servo3;
-Servo Servo4;
+//Declarations
+
+//Gripper Servo done seperately since max angle should be 60
 Servo ServoGripper;
 
 //Servos and Servo Pins array
-Servo Servos[SERVO_NUM] = {Servo1, Servo2, 
-                              Servo3, Servo4};
+Servo Servos[SERVO_NUM];
 int servoPins[SERVO_NUM] = {10, 9, 6, 5};
 
-//Declaring Potentiometer variables
-int potval1 = 0;
-int potval2 = 0;
-int potval3 = 0;
-int potval4 = 0;
-int potvalGripper = 0;
-
-//Potentiometer and Pot pins array
-int potvals[SERVO_NUM] = {potval1, potval2, 
-                          potval3, potval4};
+//Declaring Potentiometers
+int potvalGripper;
+int potvals[SERVO_NUM];
 int potpins[SERVO_NUM] = {5, 4, 3, 2};
 
 //Declaring Angle Values
-int angle1 = 0;
-int angle2 = 0;
-int angle3 = 0;
-int angle4 = 0;
-int angleGripper = 0;
-
-int angles[SERVO_NUM] = {angle1, angle2, 
-                         angle3, angle4};
+int angleGripper;
+int angles[SERVO_NUM];
 
 void setup()
 {
@@ -45,7 +29,6 @@ void setup()
     delay(15);
   }
  //Setting up Gripper Servo
- //Done seperately since max angle should be 60
  ServoGripper.attach(3);
  ServoGripper.write(0);
 }
