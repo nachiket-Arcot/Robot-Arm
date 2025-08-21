@@ -1,9 +1,9 @@
 #include <Servo.h>
 #define SERVO_NUM 4
 
-/**********
+/**********************************
 Declaration of variables and arrays
-*********/
+**********************************/
 
 //Gripper Servo done seperately since max angle should be 60
 Servo ServoGripper;
@@ -24,9 +24,9 @@ int angleGripper;
 int angles[SERVO_NUM];
 
 
-/**********
+/***************************************
 Individual functions made for each tasks
-*********/
+***************************************/
 
 //Setting up servos by connecting them to their respective pins
 void setupServo(){
@@ -64,7 +64,7 @@ void rotateServos() {
 }
 
 //Printing angle and potval values for debugging purposes
-void debug() {
+void display() {
   for (int i = 0; i < SERVO_NUM; i++) {
     Serial.println(" Servo ");
     Serial.print(i + 1);
@@ -81,9 +81,9 @@ void debug() {
   Serial.println("=============================");
 }
 
-/**********
+/*************
 Function Calls
-*********/
+*************/
 
 void setup()
 {
@@ -96,5 +96,5 @@ void loop()
   readPotentiometers();
   adjustangles();
   rotateServos();
-  //debug();
+  //display();
 }
