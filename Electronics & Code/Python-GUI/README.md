@@ -15,3 +15,15 @@ It also provides and intuitive interface allowing simplicity when controlling, t
 -Text Entry for if you want to adjust the servo to a specific angle  
 
 
+To be able to use the Python Files you must install the customTkinter, Tkinter and PySerial Library as such:  
+
+```
+pip install customtkinter
+
+pip install tkinter
+
+pip install pyserial
+
+```
+
+
