@@ -1,4 +1,4 @@
-Python GUI comprised of three files on the python side each for:
+Python GUI (Graphical User Interface) comprised of three files on the python side each for:
 
 -Creating the interface  
 -Connecting to the Arduino Microcontroller  
