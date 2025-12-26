@@ -27,3 +27,6 @@ pip install pyserial
 ```
 
 
+Here is the Circuit Recreated on TinkerCad:  
+https://www.tinkercad.com/things/eZ5IzaR9MzG-python-gui-robot-arm
+
