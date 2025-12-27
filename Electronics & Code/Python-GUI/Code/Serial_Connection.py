@@ -43,7 +43,7 @@ def slider_status(slider_num, slider_var):
     if slider_valint >= 0 and slider_valint <= 180:
 
         #Slider message for debugging purposes
-        #slider_message = "Slider Number: {}, Slider Value: {}".format(slider_num, slider_valint)
+        slider_message = "Slider Number: {}, Slider Value: {}".format(slider_num, slider_valint)
 
         #Sending data to arduino microcontroller
         data_send = "{},{}\n".format(slider_num, slider_valint)
@@ -54,7 +54,7 @@ def slider_status(slider_num, slider_var):
         #Error message for if slider is not within bounds
         slider_message = "Slider Value for Slider {} not within limits".format(slider_num)
 
-    print(slider_message)
+    #print(slider_message)
 
 
 
