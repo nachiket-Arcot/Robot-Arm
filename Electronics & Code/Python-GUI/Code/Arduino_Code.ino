@@ -1,7 +1,7 @@
 /**
 Arduino Code
 
-This code will read the data from the python interface and turn the servos accordingy
+This code will read the data from the python interface and turn the servos accordingly
 */
 
 #include <Servo.h>
