@@ -11,14 +11,14 @@ print("Serial Connection File is running")
 Arduino = 0
 
 '''
-Getting port from GUI File
+Establishing Connection between Arduino And Python GUI
 '''
 def getportnum(port):
 
     com_port = 'COM{}'.format(port)
 
     try:
-        print("Connecting to {}.... ".format(com_port)) #displaying port number for debugging
+        print("Connecting to {}.... ".format(com_port)) 
 
         #Setting up the arduino
         global Arduino
@@ -55,6 +55,7 @@ def slider_status(slider_num, slider_var):
         slider_message = "Slider Value for Slider {} not within limits".format(slider_num)
 
     print(slider_message)
+
 
 
 
