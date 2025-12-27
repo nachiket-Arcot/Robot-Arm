@@ -30,3 +30,4 @@ pip install pyserial
 Here is the Circuit Recreated on TinkerCad:  
 https://www.tinkercad.com/things/eZ5IzaR9MzG-python-gui-robot-arm
 
+WARNING: You must first load the arduino code into the microcontroller before running the Main GUI file, otherwise it could result in the port connection being refused. The Arduino must be plugged into your computer at all time for the serial connection to work.
