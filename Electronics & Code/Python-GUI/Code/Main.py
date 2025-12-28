@@ -72,7 +72,7 @@ customtkinter.set_appearance_mode("dark")
 size = "{}x{}".format(screen_size[0], screen_size[1])
 screen.geometry(size)
 
-screen.title("Robot Arm Control Interface")
+screen.title("Robot Arm Control Interface v1.0")
 
 
 
