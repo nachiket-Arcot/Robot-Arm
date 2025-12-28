@@ -1,8 +1,7 @@
-/**
-Arduino Code
-
+/***************************************************************************************
+Arduino Code:
 This code will read the data from the python interface and turn the servos accordingly
-*/
+***************************************************************************************/
 
 #include <Servo.h>
 #define SERVO_NUM 4
@@ -45,9 +44,9 @@ void loop() {
 
 
 
-/****
+/****************
 UDF Definitions
-*****/
+****************/
 
 //Attaching Servo Joints to their respective pins
 void setup_servo(){
