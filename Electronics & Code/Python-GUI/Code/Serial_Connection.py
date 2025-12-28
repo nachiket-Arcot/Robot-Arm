@@ -18,8 +18,7 @@ def getportnum(port):
     com_port = 'COM{}'.format(port)
 
     try:
-        print("Connecting to {}.... ".format(com_port)) 
-
+        
         #Setting up the arduino
         global Arduino
         Arduino = serial.Serial(port = com_port, baudrate = 115200, timeout = 0.1)
@@ -57,6 +56,7 @@ def slider_status(slider_num, slider_var):
         slider_message = "Slider Value for Slider {} not within limits".format(slider_num)
 
     #print(slider_message)
+
 
 
 
