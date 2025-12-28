@@ -23,7 +23,7 @@ def getportnum(port):
         #Setting up the arduino
         global Arduino
         Arduino = serial.Serial(port = com_port, baudrate = 115200, timeout = 0.1)
-        print("Connection to {} succesful".format(com_port))
+        print("Connection to {} established".format(com_port))
 
     except serial.serialutil.SerialException as e:
 
@@ -57,6 +57,7 @@ def slider_status(slider_num, slider_var):
         slider_message = "Slider Value for Slider {} not within limits".format(slider_num)
 
     #print(slider_message)
+
 
 
 
