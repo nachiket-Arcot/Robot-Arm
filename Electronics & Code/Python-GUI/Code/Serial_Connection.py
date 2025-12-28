@@ -31,7 +31,9 @@ def getportnum(port):
 
 
 
-'''Getting value of the slider for the joint servos'''
+'''
+Sending Slider Values to the Arduino
+'''
 
 
 def slider_status(slider_num, slider_var):
@@ -55,6 +57,7 @@ def slider_status(slider_num, slider_var):
         slider_message = "Slider Value for Slider {} not within limits".format(slider_num)
 
     #print(slider_message)
+
 
 
 
